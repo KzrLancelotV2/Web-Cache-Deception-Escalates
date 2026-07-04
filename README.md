@@ -53,7 +53,7 @@ Base URL: http://localhost:8080/profile
 Dynamic Endpoint: /profile
 Cacheable Extensions: .css, .js, .png, .jpg
 Visible Cache Header: X-Cache
-
+```
 ### Member 2 — Core Detection Engine
 
 **Main responsibility:** Implement the main DE detection algorithm from the paper.
