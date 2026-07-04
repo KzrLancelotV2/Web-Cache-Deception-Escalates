@@ -30,34 +30,29 @@ If the origin server returns the dynamic `/profile` page, but the reverse proxy 
 
 ### Member 1 — Infrastructure & Test Environment
 
+**Status:** ✅ **Completed**
+
 **Main responsibility:** Create the local vulnerable environment where WCD can be reproduced.
 
-Member 1 should implement:
+Member 1 has implemented:
+- A vulnerable web application using Flask.
+- A dynamic `/profile` page containing a sensitive dummy CSRF token.
+- Origin-server routing behavior (Clean URLs) where a URL like `/profile/random.css` still returns the original `/profile` content.
+- A reverse proxy cache using Nginx deployed via Docker Compose.
+- Cache rules that aggressively cache static-looking extensions (`.css`, `.js`, `.png`, `.jpg`).
+- A response header (`Cache-Control: no-store`) from the origin server to show that the origin did not intend the response to be cached.
+- Visible cache-status headers (`X-Cache: MISS` and `X-Cache: HIT`) precisely aligned with Member 3's `infer_cache_status()` expectations.
 
-- A simple vulnerable web application using Flask, Node.js, or another lightweight backend.
-- A dynamic page such as `/profile`.
-- A sensitive dummy value in the HTML body, such as a fake CSRF token.
-- Origin-server routing behavior where a URL like `/profile/random.css` still returns the original `/profile` content.
-- A reverse proxy cache using Nginx or Varnish, preferably with Docker.
-- Cache rules that cache static-looking extensions such as `.css` or `.js`.
-- A response header such as `Cache-Control: no-store` from the origin server to show that the origin did not intend the response to be cached.
-- Cache-status headers such as `X-Cache: MISS` and `X-Cache: HIT`, so Member 2 and Member 3 can detect cache behavior.
+**Current Output & Environment Details:**
 
-**Output expected from Member 1:**
+The environment is ready and containerized. To spin it up, simply run:
+`docker-compose up --build`
 
 ```text
-A running local test target, for example:
-http://localhost:8080/profile
-```
-
-Member 1 should tell the group:
-
-- the base URL of the app,
-- which endpoint is dynamic,
-- which cache headers are visible,
-- which static extensions are cacheable.
-
----
+Base URL: http://localhost:8080/profile
+Dynamic Endpoint: /profile
+Cacheable Extensions: .css, .js, .png, .jpg
+Visible Cache Header: X-Cache
 
 ### Member 2 — Core Detection Engine
 
