@@ -1,0 +1,13 @@
+mode,original_url,attack_url,extension,random_filename
+PATH_PARAMETER,http://localhost:8080/profile,http://localhost:8080/profile/ftudnwqdg97p6vnhg2.css,.css,ftudnwqdg97p6vnhg2.css
+ENCODED_SEMICOLON,http://localhost:8080/profile,http://localhost:8080/profile%3Bn1gr1vnhidrhs_esqkz.css,.css,n1gr1vnhidrhs_esqkz.css
+ENCODED_QUESTION,http://localhost:8080/profile,http://localhost:8080/profile%3Fwg9ks9mis0iv31ws0kw.css,.css,wg9ks9mis0iv31ws0kw.css
+ENCODED_NEWLINE,http://localhost:8080/profile,http://localhost:8080/profile%0Az4qv41bcmqo.css,.css,z4qv41bcmqo.css
+ENCODED_SHARP,http://localhost:8080/profile,http://localhost:8080/profile%23lfuy6uw9j0l.css,.css,lfuy6uw9j0l.css
+ENCODED_SLASH,http://localhost:8080/profile,http://localhost:8080/profile%2Fo2sdr3l6af.css,.css,o2sdr3l6af.css
+DOUBLE_ENCODED_SEMICOLON,http://localhost:8080/profile,http://localhost:8080/profile%25%33%42yee0bm1h0hjcx.css,.css,yee0bm1h0hjcx.css
+DOUBLE_ENCODED_QUESTION,http://localhost:8080/profile,http://localhost:8080/profile%25%33%46d9mg_9uxxw.css,.css,d9mg_9uxxw.css
+DOUBLE_ENCODED_NEWLINE,http://localhost:8080/profile,http://localhost:8080/profile%25%30%41z7x11tveupmtyumlw1.css,.css,z7x11tveupmtyumlw1.css
+DOUBLE_ENCODED_SHARP,http://localhost:8080/profile,http://localhost:8080/profile%25%32%33txt_wg69pu6janwb9ua.css,.css,txt_wg69pu6janwb9ua.css
+DOUBLE_ENCODED_SLASH,http://localhost:8080/profile,http://localhost:8080/profile%25%32%46guscqcklnw9p4h5.css,.css,guscqcklnw9p4h5.css
+DOUBLE_ENCODED_NULL,http://localhost:8080/profile,http://localhost:8080/profile%25%30%30m1m452d2coue.css,.css,m1m452d2coue.css

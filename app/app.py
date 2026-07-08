@@ -36,7 +36,7 @@ def profile(path):
                 max-width: 400px;
                 width: 100%;
                 text-align: center;
-                border-top: 6px solid #007bff;
+                border-top: 6px solid #dc3545; /* Changed to red accent for password context */
             }}
             .profile-card h2 {{
                 color: #343a40;
@@ -60,7 +60,8 @@ def profile(path):
                 font-weight: bold;
                 margin-bottom: 25px;
             }}
-            input[type="email"] {{
+            /* Updated style targets to password inputs */
+            input[type="password"] {{
                 width: 100%;
                 padding: 12px;
                 margin-bottom: 15px;
@@ -69,13 +70,13 @@ def profile(path):
                 box-sizing: border-box;
                 font-size: 1em;
             }}
-            input[type="email"]:focus {{
+            input[type="password"]:focus {{
                 outline: none;
                 border-color: #80bdff;
                 box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
             }}
             button {{
-                background-color: #007bff;
+                background-color: #dc3545; /* Changed button color to contrast with password update action */
                 color: white;
                 border: none;
                 padding: 14px 20px;
@@ -87,13 +88,13 @@ def profile(path):
                 transition: background-color 0.3s ease;
             }}
             button:hover {{
-                background-color: #0056b3;
+                background-color: #bd2130;
             }}
         </style>
     </head>
     <body>
         <div class="profile-card">
-            <h2>👤 User Profile</h2>
+            <h2>👤 Account Settings</h2>
             
             <div class="token-box">
                 <span style="font-size: 0.8em; color: #666;">SECRET CSRF TOKEN:</span><br>
@@ -102,10 +103,10 @@ def profile(path):
             
             <p class="warning">⚠️ This page contains sensitive data and should never be cached!</p>
             
-            <form action="/update" method="POST">
+            <form action="/update-password" method="POST">
                 <input type="hidden" name="csrf_token" value="{csrf_token}">
-                <input type="email" name="email" placeholder="Enter new email address" required>
-                <button type="submit">Update Email</button>
+                <input type="password" name="password" placeholder="Enter new secure password" required>
+                <button type="submit">Update Password</button>
             </form>
         </div>
     </body>

@@ -36,7 +36,16 @@ from dataclasses import asdict, dataclass
 from typing import Dict, List, Optional
 
 import requests
+import sys
+import os
 
+# Get the path of the current script's directory, then get its parent directory
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+# Add the parent directory to the Python path
+sys.path.append(parent_dir)
+
+# Now you can import Member 3's file directly!
 # --- Member 3's module ---------------------------------------------------
 from member3_wcd_completed import (
     AttackPayload,
