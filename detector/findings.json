@@ -1,0 +1,28 @@
+[
+  {
+    "original_url": "http://localhost:8080/profile",
+    "attack_url": "http://localhost:8080/profile/7idugzjpyp7ranc_rq0e.css",
+    "mode": "PATH_PARAMETER",
+    "first_cache_status": "MISS",
+    "second_cache_status": "HIT",
+    "first_http_status": 200,
+    "second_http_status": 200,
+    "bodies_identical": true,
+    "body_hash": "3c657335f3e31061da560c7cd28ebf4ed0e4af5e8b6aebc0ba735e305940c4c2",
+    "status": "suspicious",
+    "reason": "First request MISS, second request HIT, identical bodies: the cache stored a dynamic/per-user response under a static-looking URL."
+  },
+  {
+    "original_url": "http://localhost:8080/profile",
+    "attack_url": "http://localhost:8080/profile%2Fzzwruz8g5c6omwuc.css",
+    "mode": "ENCODED_SLASH",
+    "first_cache_status": "MISS",
+    "second_cache_status": "HIT",
+    "first_http_status": 200,
+    "second_http_status": 200,
+    "bodies_identical": true,
+    "body_hash": "d524684629b3e0a3145dcfd11ef187d37ffb829bceb78216378252c47b4d1592",
+    "status": "suspicious",
+    "reason": "First request MISS, second request HIT, identical bodies: the cache stored a dynamic/per-user response under a static-looking URL."
+  }
+]

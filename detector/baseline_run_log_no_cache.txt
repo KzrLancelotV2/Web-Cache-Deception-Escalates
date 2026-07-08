@@ -1,0 +1,58 @@
+======================================================================
+Member 2 - Web Cache Deception Detection Engine (Algorithm 1)
+======================================================================
+
+[Step 1] GET http://localhost:5000/profile
+         client_state A -> 200, hash=a3190fa69832
+         client_state B -> 200, hash=d5ecdb57b85b
+         Dynamic content confirmed: True
+
+[i] Received 12 candidate attack URLs from Member 3.
+
+--- Testing mode: PATH_PARAMETER (http://localhost:5000/profile/t54ripcfbxnb3mqz1o.css) ---
+[Step 2] Attack URL is alive and returns dynamic content.
+[Step 3] first=UNKNOWN second=UNKNOWN bodies_identical=False -> NOT_SUSPICIOUS
+         Cache headers were UNKNOWN/not visible; cannot confirm from headers alone.
+
+--- Testing mode: ENCODED_SEMICOLON (http://localhost:5000/profile%3Bvivl3t24kzagy.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: ENCODED_QUESTION (http://localhost:5000/profile%3Fiaseknjxhq2_ura_.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: ENCODED_NEWLINE (http://localhost:5000/profile%0Ae6ww1q9eiwalj4uo.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: ENCODED_SHARP (http://localhost:5000/profile%23o22bnjw6xqjzv4xq.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: ENCODED_SLASH (http://localhost:5000/profile%2Fcda0g13jgs2_wyi.css) ---
+[Step 2] Attack URL is alive and returns dynamic content.
+[Step 3] first=UNKNOWN second=UNKNOWN bodies_identical=False -> NOT_SUSPICIOUS
+         Cache headers were UNKNOWN/not visible; cannot confirm from headers alone.
+
+--- Testing mode: DOUBLE_ENCODED_SEMICOLON (http://localhost:5000/profile%25%33%425lr3k_6y6p.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_QUESTION (http://localhost:5000/profile%25%33%46r5tqwsaou0q9_pkm.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_NEWLINE (http://localhost:5000/profile%25%30%4101996bjdlvpx.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_SHARP (http://localhost:5000/profile%25%32%335f068uchulla8dhkp.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_SLASH (http://localhost:5000/profile%25%32%46dyrlxjy_hs7raiodo.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_NULL (http://localhost:5000/profile%25%30%301etpgdqcs8q34dskmn4.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+======================================================================
+Algorithm 1 result: 0 suspicious finding(s) before FP filtering
+======================================================================
+
+======================================================================
+FINAL RESULT: 0 confirmed WCD finding(s)
+======================================================================

@@ -1,0 +1,69 @@
+======================================================================
+Member 2 - Web Cache Deception Detection Engine (Algorithm 1)
+======================================================================
+
+[Step 1] GET http://localhost:8080/profile
+         client_state A -> 200, hash=d5b724c244d4
+         client_state B -> 200, hash=b6bd6caa47d9
+         Dynamic content confirmed: True
+
+[i] Received 12 candidate attack URLs from Member 3.
+
+--- Testing mode: PATH_PARAMETER (http://localhost:8080/profile/7idugzjpyp7ranc_rq0e.css) ---
+[Step 2] Attack URL is alive and returns dynamic content.
+[Step 3] first=MISS second=HIT bodies_identical=True -> SUSPICIOUS
+         First request MISS, second request HIT, identical bodies: the cache stored a dynamic/per-user response under a static-looking URL.
+
+--- Testing mode: ENCODED_SEMICOLON (http://localhost:8080/profile%3B2aa_0u2qjto3gva273r.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: ENCODED_QUESTION (http://localhost:8080/profile%3F8at_pi4or_sw73qi.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: ENCODED_NEWLINE (http://localhost:8080/profile%0Aesuchvh85fpofa9y.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: ENCODED_SHARP (http://localhost:8080/profile%23hap49qhg_45tzix.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: ENCODED_SLASH (http://localhost:8080/profile%2Fzzwruz8g5c6omwuc.css) ---
+[Step 2] Attack URL is alive and returns dynamic content.
+[Step 3] first=MISS second=HIT bodies_identical=True -> SUSPICIOUS
+         First request MISS, second request HIT, identical bodies: the cache stored a dynamic/per-user response under a static-looking URL.
+
+--- Testing mode: DOUBLE_ENCODED_SEMICOLON (http://localhost:8080/profile%25%33%426p1a_y179gqqwl7.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_QUESTION (http://localhost:8080/profile%25%33%46figp0rzs1a6b1sjz1h20.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_NEWLINE (http://localhost:8080/profile%25%30%41hghdhzhencfin5idlnk.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_SHARP (http://localhost:8080/profile%25%32%33zzme4kq1vsm.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_SLASH (http://localhost:8080/profile%25%32%46f67athsgbri2h4g763.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+--- Testing mode: DOUBLE_ENCODED_NULL (http://localhost:8080/profile%25%30%30gnq8myf74v9rvf8mzu.css) ---
+[Step 2] Not alive / did not return dynamic content -> skipping.
+
+======================================================================
+Algorithm 1 result: 2 suspicious finding(s) before FP filtering
+======================================================================
+
+======================================================================
+Applying Member 3's Algorithm 2 false-positive filter
+======================================================================
+
+[FP check] http://localhost:8080/profile -> kept
+           NOT A FALSE POSITIVE by Algorithm 2: the normal/original URL was not cached on the second request.
+
+======================================================================
+FINAL RESULT: 2 confirmed WCD finding(s)
+======================================================================
+  - [PATH_PARAMETER] http://localhost:8080/profile/7idugzjpyp7ranc_rq0e.css
+  - [ENCODED_SLASH] http://localhost:8080/profile%2Fzzwruz8g5c6omwuc.css
+
+Saved findings to: findings.json
