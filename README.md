@@ -364,6 +364,7 @@ wcd-demo-project/
 │
 ├── demo/
 │   └── demo_script.md              # Member 4
+│   └── demo_server.py              # Member 4
 │
 ├── docker-compose.yml              # Member 1 / group integration
 └── README.md
