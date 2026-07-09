@@ -9,8 +9,8 @@ services:
       - FLASK_ENV=development
 
   nginx:
-    #image: nginx:latest
-    image: ghcr.io/nginxinc/nginx-unprivileged:alpine
+    image: nginx:latest
+    #image: ghcr.io/nginxinc/nginx-unprivileged:alpine
     ports:
       - "8080:80" # پورت اصلی که کاربر/مهاجم با آن کار می‌کند
     volumes:

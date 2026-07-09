@@ -351,7 +351,7 @@ def main() -> None:
     parser.add_argument("--count-per-mode", type=int, default=1, help="Attack URLs to generate per mode")
     parser.add_argument("--timeout", type=int, default=8, help="HTTP timeout in seconds")
     parser.add_argument("--skip-fp-filter", action="store_true", help="Skip Member 3's Algorithm 2 false-positive filter")
-    parser.add_argument("--output-json", help="Optional path to save final findings as JSON")
+    parser.add_argument("--output-json", default="../findings.json", help="Optional path to save final findings as JSON") # <--- تغییر اعمال شد
     parser.add_argument("--allow-external", action="store_true", help="Allow non-local targets (only with authorization)")
 
     args = parser.parse_args()
